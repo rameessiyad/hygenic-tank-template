@@ -4,11 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hygenic Tank | Gallery</title>
+    <title>Hygienic Tank | Gallery</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <header class="gallery-header">
+        <h1>Gallery</h1>
+        <p>Hygienic Tank is committed to providing high-quality cleaning services.</p>
+    </header>
 
+    <div class="gallery-section">
+        <div class="filters">
+            <button data-filter="all" class="active">All</button>
+            <button data-filter="sump">Sumps</button>
+            <button data-filter="reservoir">Reservoirs</button>
+            <button data-filter="overhead">Overhead Tanks</button>
+        </div>
+        <div class="gallery">
+            <div class="gallery-item sump">
+                <img src="https://media.istockphoto.com/id/1461403456/photo/water-waste.jpg?s=612x612&w=0&k=20&c=E6G7ar-POted6pFnxZH_Fk3jQT1D4erwiWoX2uMGmL0="
+                    alt="Sump">
+                <span>Sump</span>
+            </div>
+            <div class="gallery-item sump">
+                <img src="https://media.istockphoto.com/id/1461403456/photo/water-waste.jpg?s=612x612&w=0&k=20&c=E6G7ar-POted6pFnxZH_Fk3jQT1D4erwiWoX2uMGmL0="
+                    alt="Sump">
+                <span>Sump</span>
+            </div>
+            <div class="gallery-item reservoir">
+                <img src="https://media.istockphoto.com/id/1461403456/photo/water-waste.jpg?s=612x612&w=0&k=20&c=E6G7ar-POted6pFnxZH_Fk3jQT1D4erwiWoX2uMGmL0="
+                    alt="Reservoir">
+                <span>Reservoir</span>
+            </div>
+            <div class="gallery-item reservoir">
+                <img src="https://media.istockphoto.com/id/1461403456/photo/water-waste.jpg?s=612x612&w=0&k=20&c=E6G7ar-POted6pFnxZH_Fk3jQT1D4erwiWoX2uMGmL0="
+                    alt="Reservoir">
+                <span>Reservoir</span>
+            </div>
+            <div class="gallery-item overhead">
+                <img src="https://media.istockphoto.com/id/1461403456/photo/water-waste.jpg?s=612x612&w=0&k=20&c=E6G7ar-POted6pFnxZH_Fk3jQT1D4erwiWoX2uMGmL0="
+                    alt="Overhead Tank">
+                <span>Overhead Tank</span>
+            </div>
+            <div class="gallery-item overhead">
+                <img src="https://media.istockphoto.com/id/1461403456/photo/water-waste.jpg?s=612x612&w=0&k=20&c=E6G7ar-POted6pFnxZH_Fk3jQT1D4erwiWoX2uMGmL0="
+                    alt="Overhead Tank">
+                <span>Overhead Tank</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('.filters button');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+
+                buttons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
